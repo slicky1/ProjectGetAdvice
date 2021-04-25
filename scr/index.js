@@ -1,13 +1,21 @@
-const BASE_URL = 'https://api.le-systeme-solaire.net'
+//const BASE_URL = 'https://api.le-systeme-solaire.net/rest/'
 
-function getSolarBodies(t){
-    const url = `${BASE_URL}/rest/bodies/${t}`;
-    return fetch(url)
-      .then(res => res.json())
+async function getSolarBodies(){
+    const res = await fetch (`https://api.le-systeme-solaire.net/rest/bodies/`)
+    const data = await res.json()
+    createDropDown(data.bodies)
+}
+getSolarBodies()
 
- }
- getSolarBodies("mars").then(data => console.log(data));
 
-// fetch ("https://api.le-systeme-solaire.net/rest/bodies/")
-// .then(res => res.json())
-// .then(bodies => console.log(bodies.englishName));
+ getSolarBodies().then(bodies =>console.log(bodies));
+
+function createDropDown(planetList) {
+    document.getElementById("body").innerHTML = `<select>
+    <option>Choose planetary body</option>
+    ${Object.keys(planetList).map(function(body){
+        return `<option> ${body}</option>`
+
+    }).join('')}
+</select>`
+}
