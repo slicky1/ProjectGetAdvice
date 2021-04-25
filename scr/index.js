@@ -1,21 +1,29 @@
-//const BASE_URL = 'https://api.le-systeme-solaire.net/rest/'
-
-async function getSolarBodies(){
-    const res = await fetch (`https://api.le-systeme-solaire.net/rest/bodies/`)
-    const data = await res.json()
-    createDropDown(data.bodies)
-}
-getSolarBodies()
+ 
 
 
- getSolarBodies().then(bodies =>console.log(bodies));
 
-function createDropDown(planetList) {
-    document.getElementById("body").innerHTML = `<select>
-    <option>Choose planetary body</option>
-    ${Object.keys(planetList).map(function(body){
-        return `<option> ${body}</option>`
+      
+     fetch('https://api.adviceslip.com/advice')
+          .then(res => res.json())
+          .then(data => {
+              const grab = callAdvice(data);
+              console.log(grab)
+          });
+    
+     //getAdvice();
 
-    }).join('')}
-</select>`
-}
+     function callAdvice(data){
+     const add = document.createElement('div');
+     add.classList.add("add");
+
+     const id = document.createElement("h3");
+     id.innerHTML = data.slip.id;
+
+     const advice  = document.createElement ("h2");
+     advice.innerHTML = data.slip.advice;
+
+     add.appendChild (id);
+     add.appendChild (advice);
+
+     return add;
+     }
