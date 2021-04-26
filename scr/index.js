@@ -24,6 +24,17 @@
 
      return add;
      }
+    
+        function reload(){
+            const resetButton = document.getElementsByClassName("reload")
+            resetButton = window.location.reload(true);
+
+            
+
+        }
+            
+            
+
         function addAdvicetoDom(adviceAdd){
             const adviceHold = document.getElementById("container");
             adviceHold.appendChild(adviceAdd);
