@@ -19,6 +19,11 @@ body{
 }
 .h2{
   text-align: center;
-  color: rgba(159, 187, 187, 0.979);
-  margin-top: 10rem;
+  color: rgba(39, 105, 160, 0.979);
+  margin-top: 5rem;
+  text-emphasis-color: rgb(12, 12, 78);
+}
+
+.add{
+    background-color: black;
 }
