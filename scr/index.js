@@ -7,13 +7,16 @@
        });
 
      function callAdvice(data){
-     const add = document.createElement('div');
+     
+    const add = document.createElement('div');
      add.classList.add("add");
 
      const id = document.createElement("h3");
+     add.classList.add("h3");
      id.innerHTML = data.slip.id;
 
      const advice  = document.createElement ("h2");
+     add.classList.add("h2");
      advice.innerHTML = data.slip.advice;
 
      add.appendChild (id);
