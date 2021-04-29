@@ -1,5 +1,6 @@
       
-     fetch('https://api.adviceslip.com/advice')
+    
+    fetch('https://api.adviceslip.com/advice')
        .then(res => res.json())
        .then(data => {
            const grab = callAdvice(data);
@@ -25,19 +26,14 @@
      return add;
      }
     
-        function reload(){
-            const resetButton = document.getElementsByClassName("reload")
-            resetButton = window.location.reload(true);
-
-            
-
-        }
-            
-            
-
+        
         function addAdvicetoDom(adviceAdd){
             const adviceHold = document.getElementById("container");
             adviceHold.appendChild(adviceAdd);
         }
-     
+
+        const button = document.getElementsByClassName ("reload") [0]
+        button.addEventListener('click', ()=>{
+
+        })
     
