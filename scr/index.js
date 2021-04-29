@@ -1,11 +1,14 @@
       
-    
+function getAdvice (){
     fetch('https://api.adviceslip.com/advice')
        .then(res => res.json())
        .then(data => {
            const grab = callAdvice(data);
          addAdvicetoDom(grab);
        });
+}
+getAdvice();
+   
 
      function callAdvice(data){
      
@@ -29,11 +32,12 @@
         
         function addAdvicetoDom(adviceAdd){
             const adviceHold = document.getElementById("container");
+            adviceHold.innerHTML = ""
             adviceHold.appendChild(adviceAdd);
         }
 
         const button = document.getElementsByClassName ("reload") [0]
-        button.addEventListener('click', ()=>{
-
+        button.addEventListener('click', () => {
+            getAdvice();
         })
     
