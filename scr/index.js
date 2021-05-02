@@ -32,7 +32,7 @@ getAdvice();
         
         function addAdvicetoDom(adviceAdd){
             const adviceHold = document.getElementById("container");
-            // adviceHold.innerHTML = ""
+             adviceHold.innerHTML = ""
             adviceHold.appendChild(adviceAdd);
         }
 
