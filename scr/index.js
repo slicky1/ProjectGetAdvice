@@ -2,9 +2,9 @@
 function getAdvice (){
     fetch('https://api.adviceslip.com/advice')
        .then(res => res.json())
-       .then(data => {
-           const grab = callAdvice(data);
-         addAdvicetoDom(grab);
+       .then(advice => {
+           const adviceGetter = callAdvice(advice);
+         addAdvicetoDom(adviceGetter);
        });
 }
 getAdvice();
@@ -12,32 +12,34 @@ getAdvice();
 
      function callAdvice(data){
      
-    const add = document.createElement('div');
-     add.classList.add("add");
+    const addDiv = document.createElement('div');
+     addDiv.classList.add("div");
 
-     const id = document.createElement("h3");
-     add.classList.add("h3");
-     id.innerHTML = data.slip.id;
+     const addId = document.createElement("h4");
+     addDiv.classList.add("h4");
+     addId.innerHTML = data.slip.id;
 
-     const advice  = document.createElement ("h2");
-     add.classList.add("h2");
-     advice.innerHTML = data.slip.advice;
+     const addAdvice  = document.createElement ("h2");
+     addDiv.classList.add("h2");
+     addAdvice.innerHTML = data.slip.advice;
 
-     add.appendChild (id);
-     add.appendChild (advice);
+     addDiv.appendChild (addId);
+     addDiv.appendChild (addAdvice);
 
-     return add;
+     return addDiv;
      }
     
         
         function addAdvicetoDom(adviceAdd){
             const adviceHold = document.getElementById("container");
-            adviceHold.innerHTML = ""
+            // adviceHold.innerHTML = ""
             adviceHold.appendChild(adviceAdd);
         }
 
-        const button = document.getElementsByClassName ("reload") [0]
+        const button = document.getElementById ("reload")
         button.addEventListener('click', () => {
             getAdvice();
         })
     
+
+       
